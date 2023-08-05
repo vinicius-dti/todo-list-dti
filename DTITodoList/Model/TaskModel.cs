@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace DTITodoList.Model
 {
     [Table("Tasks")]
-    public class Task : BaseEntity
+    public class TaskModel : BaseEntity
     {
         [Column("Title")]
         [Required]

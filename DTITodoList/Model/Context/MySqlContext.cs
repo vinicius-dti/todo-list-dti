@@ -14,6 +14,6 @@ namespace DTITodoList.Model.Context
 
         }
 
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<TaskModel> Tasks { get; set; }
     }
 }
