@@ -30,20 +30,28 @@ namespace DTITodoList.Repository
             return _mapper.Map<TaskDTO>(task);
         }
 
-        public async Task<TaskDTO> Create(TaskDTO task)
+        public async Task<TaskDTO> Update(TaskDTO task)
         {
             TaskModel return_task = _mapper.Map<TaskModel>(task);
             _context.Tasks.Update(return_task);
             await _context.SaveChangesAsync();
 
+            TaskDTO updated_task = await GetById(return_task.Id);
+
+            return_task = _mapper.Map<TaskModel>(updated_task);
+
             return _mapper.Map<TaskDTO>(return_task);
         }
 
-        public async Task<TaskDTO> Update(TaskDTO task)
+        public async Task<TaskDTO> Create(TaskDTO task)
         {
             TaskModel return_task = _mapper.Map<TaskModel>(task);
             _context.Tasks.Add(return_task);
             await _context.SaveChangesAsync();
+
+            TaskDTO created_task = await GetById(return_task.Id);
+
+            return_task = _mapper.Map<TaskModel>(created_task);
 
             return _mapper.Map<TaskDTO>(return_task);
         }

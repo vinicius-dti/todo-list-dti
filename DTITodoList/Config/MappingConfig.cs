@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DTITodoList.Data.DTO;
+using DTITodoList.Model;
 
 namespace DTITodoList.Config
 {
@@ -9,8 +10,8 @@ namespace DTITodoList.Config
         {
             return new MapperConfiguration(config =>
             {
-                config.CreateMap<TaskDTO, Task>();
-                config.CreateMap<Task, TaskDTO>();
+                config.CreateMap<TaskDTO, TaskModel>();
+                config.CreateMap<TaskModel, TaskDTO>();
             });
         }
     }
